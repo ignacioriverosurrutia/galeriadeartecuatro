@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Arte en Línea</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        /* Variables de colores */
+        :root {
+            --charcoal: #264653;
+            --persian-green: #2a9d8f;
+            --saffron: #e9c46a;
+            --sandy-brown: #f4a261;
+            --burnt-sienna: #e76f51;
+        }
+
+        /* Estilos personalizados */
+        body { font-family: 'Arial', sans-serif; background-color: var(--charcoal); color: var(--saffron); background-image: url('obra0.png'); background-size: cover; background-repeat: no-repeat;background-attachment: fixed; text-align: center}
+        h1, h3, p { margin: 0.5em 0; }
+        footer { background-color: var(--charcoal); color: var(--saffron); text-align: center; padding: 20px; position: fixed; bottom: 0; width: 100%; left: 0; }
+        .menu-principal .navbar-nav .nav-link { color: var(--sandy-brown); }
+        .menu-principal .navbar-nav .nav-link.active { background-color: var(--persian-green); color: white; }
+        .galeria { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+        .foto { width: 100%; height: auto; border: 3px solid var(--saffron); }
+        .contacto-form { max-width: 500px; margin: auto; background-color: var(--sandy-brown); padding: 20px; border-radius: 10px; }
+        .contacto-form input, .contacto-form textarea { margin-bottom: 15px; border: 1px solid var(--charcoal); }
+        .btn-primary { background-color: var(--burnt-sienna); border: none; }
+        /* Estilos responsivos para la galería */
+        @media (max-width: 768px) {
+            .galeria { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Menú principal -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light menu-principal">
+    <a class="navbar-brand" href="#">Galería de Arte</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="#inicio">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#galeria">Galería de Fotos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Contenido principal -->
+<div class="container mt-4">
+    <!-- Página de Inicio -->
+    <div id="inicio">
+            <h1>Bienvenidos a nuestra Galería de Arte en Línea</h1>
+                <p>Explora nuestra colección de arte y encuentra tu próxima obra maestra. Únete a nuestra comunidad de amantes del arte.</p>
+            <h3>Misión</h3>
+                <p>Nos entusiasma reconocer a los artistas y sus obras facilitando el acceso de la comunidad a ellas.</p>
+            <h3>Visión</h3>
+                <p>Ser una galería de arte en línea reconocida a nivel nacional e internacional por su producción artística.</p>
+    </div>
+
+    <!-- Página de Galería de Fotos -->
+    <div id="galeria" class="galeria mt-4" style="display:none;">
+        <!-- Asegúrate de reemplazar 'ruta_a_tu_imagen' con la ruta real de tus imágenes -->
+        <img src="obra1.png" class="foto" alt="Obra de arte 1">
+        <img src="obra2.png" class="foto" alt="Obra de arte 2">
+        <img src="obra3.png" class="foto" alt="Obra de arte 2">
+        <img src="obra4.png" class="foto" alt="Obra de arte 2">
+        <!-- Agrega más imágenes según sea necesario -->
+    </div>
+
+    <!-- Página de Contacto -->
+    <div id="contacto" class="contacto-form mt-4" style="display:none;">
+        <h2>Contacto</h2>
+        <form>
+            <input type="text" class="form-control" placeholder="Nombre completo">
+            <input type="email" class="form-control" placeholder="Correo electrónico">
+            <textarea class="form-control" rows="3" placeholder="Tu mensaje"></textarea>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</div>
+<!-- jQuery y Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Maneja los clics en los enlaces de la barra de navegación
+        $(".nav-link").click(function(e) {
+            // Previene el comportamiento por defecto del enlace
+            e.preventDefault();
+
+            // Remueve la clase 'active' de todos los enlaces y la añade al enlace actual
+            $(".nav-link").removeClass("active");
+            $(this).addClass("active");
+
+            // Oculta todas las secciones
+            $("#inicio, #galeria, #contacto").hide();
+
+            // Obtiene el ID de la sección seleccionada
+            var sectionId = $(this).attr("href");
+
+            // Muestra la sección correspondiente
+            $(sectionId).show();
+        });
+    });
+</script>
+
+</body>
+<!-- Pie de página -->
+<footer style="background-color: var(--charcoal); color: var(--saffron); text-align: center; padding: 20px;">
+    © 2024 Ignacio Riveros Urrutia. 2024 Galería de Arte en Línea. Todos los derechos reservados.
+</footer>
+</html>

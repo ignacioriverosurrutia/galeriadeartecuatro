@@ -1,0 +1,80 @@
+/* Variables de colores */
+:root {
+    --charcoal: #264653;
+    --persian-green: #2a9d8f;
+    --saffron: #e9c46a;
+    --sandy-brown: #f4a261;
+    --burnt-sienna: #e76f51;
+}
+
+/* Estilos personalizados */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--charcoal);
+    color: var(--saffron);
+    text-align: center; /* Centra los títulos y párrafos */
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Asegura que el contenedor ocupe al menos la altura completa de la pantalla */
+}
+h1, h3, p {
+    margin: 0.5em 0; /* Espaciado uniforme para títulos y párrafos */
+}
+footer {
+    background-color: var(--charcoal);
+    color: var(--saffron);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilos para el menú principal */
+.menu-principal .navbar-nav .nav-link {
+    color: var(--sandy-brown);
+}
+.menu-principal .navbar-nav .nav-link.active {
+    background-color: var(--persian-green);
+    color: white;
+}
+
+/* Estilos para la galería */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+.foto {
+    width: 100%;
+    height: auto;
+    border: 3px solid var(--saffron);
+}
+
+/* Estilos para el formulario de contacto */
+.contacto-form {
+    max-width: 500px;
+    margin: auto;
+    background-color: var(--sandy-brown);
+    padding: 20px;
+    border-radius: 10px;
+}
+.contacto-form input, .contacto-form textarea {
+    margin-bottom: 15px;
+    border: 1px solid var(--charcoal);
+}
+.btn-primary {
+    background-color: var(--burnt-sienna);
+    border: none;
+}
+
+/* Estilos responsivos para la galería */
+@media (max-width: 768px) {
+    .galeria {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
